@@ -25,6 +25,7 @@ include('connection/conn.php');
 
 <body class="top-navigation">
     <div id="wrapper">
+
         <div id="page-wrapper" class="white-bg">
         <div class="row border-bottom white-bg">
         <nav class="navbar navbar-static-top" role="navigation">
@@ -34,18 +35,24 @@ include('connection/conn.php');
                 </button>
                 <a href="#" class="navbar-brand">Garuda Indonesia</a>
             </div>
-            <div class="navbar-collapse collapse blue-bg" id="navbar">
-                <ul class="nav navbar-top-links navbar-right"  style="color:black">
-                    <li>
-                           <h4><i class="fa fa-user"></i> Unit <?php echo $this->session->userdata('username') ?></h4>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>user/logout" style="color:black">
-                            <i class="fa fa-sign-out"></i> Log out
-                        </a>
-                    </li>
-                </ul>
-            </div>
+          <div class="row border-bottom">
+          <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+              <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+              
+          </div>
+              <ul class="nav navbar-top-links navbar-right">
+                  <li>
+                      <span class="m-r-sm text-muted welcome-message">Welcome to Garuda Culture Program.</span>
+                  </li>
+                  <li>
+                      <a href="<?php echo base_url()?>user/logout">
+                          <i class="fa fa-sign-out"></i> Go To Admin
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+        </div>
         </nav>
         </div>
         <div class="wrapper wrapper-content animated fadeInRight">
@@ -167,45 +174,18 @@ include('connection/conn.php');
                           <tr>
                             <?php
                             $x=1;
-                            while ($x <= $max) {
+                            while ($x <= $max-9) {
                               if ($bulan>12) {
                                 $bulan=$bulan-12;
                               }
                               if ($bulan==1) {
-                                $bulan1='Jan';
-                              }
-                              if ($bulan==2) {
-                                $bulan1='Feb';
-                              }
-                              if ($bulan==3) {
-                                $bulan1='Mar';
-                              }
-                              if ($bulan==4) {
-                                $bulan1='Apr';
-                              }
-                              if ($bulan==5) {
-                                $bulan1='Mei';
-                              }
-                              if ($bulan==6) {
-                                $bulan1='Jun';
-                              }
-                              if ($bulan==7) {
-                                $bulan1='Jul';
-                              }
-                              if ($bulan==8) {
                                 $bulan1='Agu';
                               }
-                              if ($bulan==9) {
+                              if ($bulan==2) {
                                 $bulan1='Sep';
                               }
-                              if ($bulan==10) {
+                              if ($bulan==3) {
                                 $bulan1='Okt';
-                              }
-                              if ($bulan==11) {
-                                $bulan1='Nov';
-                              }
-                              if ($bulan==12) {
-                                $bulan1='Des';
                               }
                               ?>
                               <th style=" text-align:center"><?php echo $bulan1;?></th>
@@ -231,14 +211,14 @@ include('connection/conn.php');
 
                               $cc4=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
                               $bulan2=mysqli_fetch_array($cc4 )['start_month'];
-                              $bulan2= 12;
+                              $bulan2= 19;
 
                               ?>
                               <th scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></th>
                               <td><?php echo $cc_program['cc_detail'];?></td>
                               <?php
                               $o2=1;
-                              while ($o2 <= $max) {
+                              while ($o2 <= $max-9) {
                                 ?>
                                 <td style="text-align:center">
                                   <?php 
@@ -253,7 +233,7 @@ include('connection/conn.php');
                                   $pro=$cc_program['cc_detail'];
                                   $cc5=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='$unit'  and input_bulan='$bulan2' and input_detail_c='$pro'");
 
-                                  $isi5=mysqli_fetch_array($cc5 )['input_realisasi_'];
+                                  $isi5=mysqli_fetch_array($cc5)['input_realisasi_'];
                                   if ($isi5==null && empty($isi5)) {
                                     echo "-";
                                   } else {
@@ -278,214 +258,7 @@ include('connection/conn.php');
                     }
                     ?>
 
-                    <?php 
-
-                    $cc=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                    $cc2=mysqli_query($con, "SELECT MAX(cc_time) as max FROM cc_program where status= 'Default'");
-                    $cc3=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                    if (mysqli_num_rows($cc)>0)
-                    {
-                      $cuntu=mysqli_fetch_array($cc2);
-                      $max=$cuntu['max'];
-                      $bulan=12;
-
-                      ?>
-                      <table class="table table-hover table-bordered" style="font-size:14px">
-                        <thead>
-                          <tr>
-                            <th style="width:5%; text-align:center; vertical-align:middle" rowspan="2" >#</th>
-                            <th style="width:35%; text-align:center; vertical-align:middle" rowspan="2">Program</th>
-                            <th style=" text-align:center" colspan="<?php echo $max; ?>">Evidence</th>
-                          </tr>
-                          <tr>
-                            <?php
-                            $x=1;
-                            $bulan++;
-                            while ($x <= $max) {
-                              if ($bulan>12) {
-                                $bulan=$bulan-12;
-                              }
-                              if ($bulan==1) {
-                                $bulan1='Jan';
-                              }
-                              if ($bulan==2) {
-                                $bulan1='Feb';
-                              }
-                              if ($bulan==3) {
-                                $bulan1='Mar';
-                              }
-                              if ($bulan==4) {
-                                $bulan1='Apr';
-                              }
-                              if ($bulan==5) {
-                                $bulan1='Mei';
-                              }
-                              if ($bulan==6) {
-                                $bulan1='Jun';
-                              }
-                              if ($bulan==7) {
-                                $bulan1='Jul';
-                              }
-                              if ($bulan==8) {
-                                $bulan1='Agu';
-                              }
-                              if ($bulan==9) {
-                                $bulan1='Sep';
-                              }
-                              if ($bulan==10) {
-                                $bulan1='Okt';
-                              }
-                              if ($bulan==11) {
-                                $bulan1='Nov';
-                              }
-                              if ($bulan==12) {
-                                $bulan1='Des';
-                              }
-                              ?>
-                              <th style=" text-align:center"><?php echo $bulan1;?></th>
-                              <?php
-                              $bulan++;
-                              $x++;  
-                            }
-                            ?>
-                        </thead>
-                        <tbody>
-                          <?php 
-                          $no=1;
-                          while ($cc_program=mysqli_fetch_array($cc)) {
-                            $xmen=$cc_program['cc_detail'];
-
-                            ?>
-                            <tr>
-
-                              <?php
-                              $user=$this->session->userdata('username');
-                              $sudah=mysqli_query($con, "SELECT * FROM cc_program_eval JOIN cc_program_input on cc_program_eval.input_user_c=cc_program_input.input_user  and cc_program_input.input_detail=cc_program_eval.input_detail_c where input_user='$user' and input_detail='$xmen'");
-                              
-                              $isimen=mysqli_fetch_array($sudah);
-                              $gapmen=mysqli_fetch_array($gap);
-
-                              $cc4=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                              $bulan2=mysqli_fetch_array($cc4 )['start_month'];
-                              $bulan2= 12;
-
-                              ?>
-                              <th scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></th>
-                              <td><?php echo $cc_program['cc_detail'];?></td>
-                              <?php
-                              $o2=1;
-                              while ($o2 <= $max) {
-                                ?>
-                                <td style="text-align:center">
-                                  <?php 
-                                  $bulan2++;
-                                  if ($bulan2>12) {
-                                    $bulan2=$bulan2-12;
-                                  }
-                                  if ($bulan2<10) {
-                                    $bulan2="0".$bulan2;
-                                  }
-
-                                  $pro=$cc_program['cc_detail'];
-                                  $cc5=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='$user'  and input_bulan='$bulan2' and input_detail_c='$pro'");
-
-                                  $isi5=mysqli_fetch_array($cc5 )['input_attach'];
-                                  if ($isi5==null && empty($isi5)) {
-                                    echo "-";
-                                  } else {
-                                    echo "<a href='uploads/".$isi5."' download><i class='fa fa-arrow-circle-down'></i> file</a> ";
-                                  }
-                                  ?>
-                                </td>
-                                <?php
-                                $o2++;
-                              }
-                              ?>
-                            </tr>
-                            <?php
-                          }
-                          ?>
-                        </tbody>
-                      </table>
-                      <?php 
-
-                    } else {
-                      echo "Saat ini tidak ada program berjalan";
-                    }
-                    ?>
-                    <p>* Klik pada "file" untuk mengunduh Evidence</p>
-                    <!-- after 1 -->
-
-                    <br>
-
-                    <!-- after 2 -->
-                    <div class="profile_title">
-                      <div class="col-md-6">
-                        <h2>Program Progress Feedback</h2>
-                      </div>
-
-                    </div>
-                    <br>
                     
-                    <?php 
-
-                    $fb=mysqli_query($con, "SELECT * FROM cc_program_feedback where fb_recipient= '$user'");
-                    
-                    if (mysqli_num_rows($fb)>0)
-                    {
-
-                      ?>
-                      <table class="table table-hover" style="font-size:15px; border: 1px solid #D9DEE4">
-                        <thead>
-                          <tr>
-                            <th style="width:5%; text-align:center">#</th>
-                            <th style="width:70%; text-align:center">Subject</th>
-                            <th style="width:20%; text-align:center">Detail</th>
-                            <th style="width:5%; text-align:center"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php 
-                          $no=1;
-                          while ($fb_=mysqli_fetch_array($fb)) {
-                            $id_pesan=$fb_['fb_id'];
-                            if ($fb_['status']=='unread') {
-
-                              ?>
-                              <tr >
-                                <th scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></th>
-                                <td style="text-align:center; vertical-align:middle"><a href="<?php echo base_url()?>user/feedback/<?php echo $fb_['fb_id']?>"><b><?php echo $fb_['fb_subject']; ?></b></a></td>
-                                <td style="text-align:center; vertical-align:middle"><a href="<?php echo base_url()?>user/feedback/<?php echo $fb_['fb_id']?>">Lihat</a></td>
-                                <td style="text-align:center; vertical-align:middle">
-                                  <i class="fa fa-circle" style="color:#b7b7b7"></i>
-                                </td>
-                              </tr>
-                              <?php
-                            } elseif ($fb_['status']=='read') {
-                              ?>
-                              <tr style="background-color: #f9f9f9; ">
-                                <td scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></td>
-                                <td style="text-align:center; vertical-align:middle"><a href="<?php echo base_url()?>user/feedback/<?php echo $fb_['fb_id']?>"><b><?php echo $fb_['fb_subject']; ?></b></a></td>
-                                <td style="text-align:center; vertical-align:middle"><a href="<?php echo base_url()?>user/feedback/<?php echo $fb_['fb_id']?>">Lihat</a></td>
-                                <td style="text-align:center; vertical-align:middle"> 
-                                </td>
-                              </tr>
-                              <?php
-                            }
-                          }
-                          ?>
-                        </tbody>
-                      </table>
-                      <?php 
-
-                    } else {
-                      echo "<div class='x_panel'>";
-                      echo "<div class='x_content'>";
-                      echo "<p style='text-align:center'>Anda tidak memiliki Feedback</p>";
-                      echo "</div>";
-                      echo "</div>";
-                    }
-                    ?>
 
                     <!-- after 2 -->
 
