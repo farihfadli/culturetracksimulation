@@ -97,7 +97,6 @@ class User extends CI_Controller {
 			$capaian=$_POST['capaian'];
 			$metodologi=$_POST['metodologi'];
 			$r_positif=$_POST['r_positif'];
-			$r_negatif=$_POST['r_negatif'];
 			$capaian_=round($capaian/$target*100);
 			if ($capaian_ > 100){
 				$capaian_ = 100;
@@ -109,44 +108,7 @@ class User extends CI_Controller {
 				$gap=100-$capaian_;
 			}
 
-			if (isset($_FILES['file']['name'])&&!empty($_FILES['file']['name'])) {
-			$file = rand(1000,100000)."-".$_FILES['file']['name'];
-			$file_loc = $_FILES['file']['tmp_name'];
-			$file_size = $_FILES['file']['size'];
-				// Check file size
-			if ($file_size > 4194304) {
-				echo "Sorry, your file is too large.";
-				$_SESSION['error2']=1;
-				$uploadOk = 0;
-			}
-			$folder="uploads/";
-				// new file size in KB
-			$new_size = $file_size/1024;  
-				// new file size in KB
-
-				// make file name in lower case
-			$new_file_name = strtolower($file);
-				// make file name in lower case
-
-			$final_file=str_replace(' ','-',$new_file_name);
-				// Allow certain file formats
-
-			$target_file = $folder . basename($_FILES["file"]["name"]);
-			$file_type = pathinfo($target_file,PATHINFO_EXTENSION);;
-				// Allow certain file formats
-			if($file_type != "rar" && $file_type != "zip" ) {
-
-				echo "Sorry, only rar and zip files are allowed.";
-				$_SESSION['error']=1;
-				$_SESSION['tipe']=$file_type;
-
-				$uploadOk = 0;
-			}
-			if ($uploadOk == 0) {
-
-				// if everything is ok, try to upload file
-			} else {
-				move_uploaded_file($file_loc,$folder.$final_file);
+		move_uploaded_file($file_loc,$folder.$final_file);
 				$data_program = array(
 								'input_user_c'			=> $this->session->userdata('username'),
 								'input_detail_c'		=> $this->input->post('program'),
@@ -154,17 +116,13 @@ class User extends CI_Controller {
 								'input_realisasi_'		=> $capaian_,
 								'input_metodologi'		=> $metodologi,
 								'input_reinforcement_positif'		=> $r_positif,
-								'input_reinforcement_negatif'		=> $r_negatif,
-								'input_attach'			=> $final_file,
 								'input_gap'				=> $gap,
 								'input_bulan'			=> $month,
 								'last_modified_c'		=> $data
 						);
 				//print_r($data_program);exit();
 				$this->model_users->evaluasi_data($data_program);
-				redirect('user/index'); 
-			}
-		}
+				redirect('user/index');
 			
 			}
 	}
