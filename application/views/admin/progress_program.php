@@ -268,45 +268,18 @@ $user=$unit;
                           <tr>
                             <?php
                             $x=1;
-                            while ($x <= $max) {
+                            while ($x <= $max-9) {
                               if ($bulan>12) {
                                 $bulan=$bulan-12;
                               }
                               if ($bulan==1) {
-                                $bulan1='Jan';
-                              }
-                              if ($bulan==2) {
-                                $bulan1='Feb';
-                              }
-                              if ($bulan==3) {
-                                $bulan1='Mar';
-                              }
-                              if ($bulan==4) {
-                                $bulan1='Apr';
-                              }
-                              if ($bulan==5) {
-                                $bulan1='Mei';
-                              }
-                              if ($bulan==6) {
-                                $bulan1='Jun';
-                              }
-                              if ($bulan==7) {
-                                $bulan1='Jul';
-                              }
-                              if ($bulan==8) {
                                 $bulan1='Agu';
                               }
-                              if ($bulan==9) {
+                              if ($bulan==2) {
                                 $bulan1='Sep';
                               }
-                              if ($bulan==10) {
+                              if ($bulan==3) {
                                 $bulan1='Okt';
-                              }
-                              if ($bulan==11) {
-                                $bulan1='Nov';
-                              }
-                              if ($bulan==12) {
-                                $bulan1='Des';
                               }
                               ?>
                               <th style=" text-align:center"><?php echo $bulan1;?></th>
@@ -332,14 +305,14 @@ $user=$unit;
 
                               $cc4=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
                               $bulan2=mysqli_fetch_array($cc4 )['start_month'];
-                              $bulan2= 12;
+                              $bulan2= 19;
 
                               ?>
                               <th scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></th>
                               <td><?php echo $cc_program['cc_detail'];?></td>
                               <?php
                               $o2=1;
-                              while ($o2 <= $max) {
+                              while ($o2 <= $max-9) {
                                 ?>
                                 <td style="text-align:center">
                                   <?php 
@@ -379,155 +352,10 @@ $user=$unit;
                     }
                     ?>
 
-                    <?php 
-
-                    $cc=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                    $cc2=mysqli_query($con, "SELECT MAX(cc_time) as max FROM cc_program where status= 'Default'");
-                    $cc3=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                    if (mysqli_num_rows($cc)>0)
-                    {
-                      $cuntu=mysqli_fetch_array($cc2);
-                      $max=$cuntu['max'];
-                      $bulan=12;
-
-                      ?>
-                      <table class="table table-hover table-bordered" style="font-size:14px">
-                        <thead>
-                          <tr>
-                            <th style="width:5%; text-align:center; vertical-align:middle" rowspan="2" >#</th>
-                            <th style="width:35%; text-align:center; vertical-align:middle" rowspan="2">Program</th>
-                            <th style=" text-align:center" colspan="<?php echo $max; ?>">Evidence</th>
-                          </tr>
-                          <tr>
-                            <?php
-                            $x=1;
-                            $bulan++;
-                            while ($x <= $max) {
-                              if ($bulan>12) {
-                                $bulan=$bulan-12;
-                              }
-                              if ($bulan==1) {
-                                $bulan1='Jan';
-                              }
-                              if ($bulan==2) {
-                                $bulan1='Feb';
-                              }
-                              if ($bulan==3) {
-                                $bulan1='Mar';
-                              }
-                              if ($bulan==4) {
-                                $bulan1='Apr';
-                              }
-                              if ($bulan==5) {
-                                $bulan1='Mei';
-                              }
-                              if ($bulan==6) {
-                                $bulan1='Jun';
-                              }
-                              if ($bulan==7) {
-                                $bulan1='Jul';
-                              }
-                              if ($bulan==8) {
-                                $bulan1='Agu';
-                              }
-                              if ($bulan==9) {
-                                $bulan1='Sep';
-                              }
-                              if ($bulan==10) {
-                                $bulan1='Okt';
-                              }
-                              if ($bulan==11) {
-                                $bulan1='Nov';
-                              }
-                              if ($bulan==12) {
-                                $bulan1='Des';
-                              }
-                              ?>
-                              <th style=" text-align:center"><?php echo $bulan1;?></th>
-                              <?php
-                              $bulan++;
-                              $x++;  
-                            }
-                            ?>
-                        </thead>
-                        <tbody>
-                          <?php 
-                          $no=1;
-                          while ($cc_program=mysqli_fetch_array($cc)) {
-                            $xmen=$cc_program['cc_detail'];
-                            ?>
-                            <tr>
-
-                              <?php
-                              $user=$username;
-                              $sudah=mysqli_query($con, "SELECT * FROM cc_program_eval JOIN cc_program_input on cc_program_eval.input_user_c=cc_program_input.input_user  and cc_program_input.input_detail=cc_program_eval.input_detail_c where input_user='$user' and input_detail='$xmen'");
-                              
-                              $isimen=mysqli_fetch_array($sudah);
-                              $gapmen=mysqli_fetch_array($gap);
-
-                              $cc4=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                              $bulan2=mysqli_fetch_array($cc4 )['start_month'];
-                              $bulan2= 12;
-
-                              ?>
-                              <th scope="row" style="text-align:center; vertical-align:middle"><?php echo $no++; ?></th>
-                              <td><?php echo $cc_program['cc_detail'];?></td>
-                              <?php
-                              $o2=1;
-                              while ($o2 <= $max) {
-                                ?>
-                                <td style="text-align:center">
-                                  <?php 
-                                  $bulan2++;
-                                  if ($bulan2>12) {
-                                    $bulan2=$bulan2-12;
-                                  }
-                                  if ($bulan2<10) {
-                                    $bulan2="0".$bulan2;
-                                  }
-
-                                  $pro=$cc_program['cc_detail'];
-                                  $cc5=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='$user'  and input_bulan='$bulan2' and input_detail_c='$pro'");
-
-                                  $isi5=mysqli_fetch_array($cc5 )['input_attach'];
-                                  if ($isi5==null && empty($isi5)) {
-                                    echo "-";
-                                  } else {
-                                    echo "<a href='uploads/".$isi5."' download><i class='fa fa-arrow-circle-down'></i> file</a> ";
-                                  }
-                                  ?>
-                                </td>
-                                <?php
-                                $o2++;
-                              }
-                              ?>
-                            </tr>
-                            <?php
-                          }
-                          ?>
-                        </tbody>
-                      </table>
-                      <?php 
-
-                    } else {
-                      echo "Saat ini tidak ada program berjalan";
-                    }
-                    ?>
-                    <p>* Klik pada "file" untuk mengunduh Evidence</p>
-                    <!-- after 1 -->
-
-                    <br>
+                    
 
                     
 
-                  </div>
-                </div>
-            </div>
-            <br />
-            <br />
-            <!-- /form grid slider -->
-
-          </div>
           <div class="col-md-1 col-sm-1 col-xs-12"></div>
 
         </div>
