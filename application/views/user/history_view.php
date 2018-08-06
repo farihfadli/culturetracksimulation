@@ -10,8 +10,9 @@ include('connection/conn.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
-    <title>Garuda Indonesia</title>
+
+    <title>Garuda Indonesia | Dashboard</title>
+
 
     <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
     <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
@@ -21,21 +22,53 @@ include('connection/conn.php');
     <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
 
+    <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
+    <link href="<?php echo base_url()?>font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="<?php echo base_url()?>css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="<?php echo base_url()?>js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
+
 </head>
 
-<body class="top-navigation">
+<body>
     <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="<?php echo base_url()?>img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $this->session->userdata('username')?></strong>
+                             </span> <span class="text-muted text-xs block">User <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="<?php echo base_url()?>user/logout">Go To Admin</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            GI
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="<?php echo base_url()?>admin/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Progress</span></a>
 
-        <div id="page-wrapper" class="white-bg">
-        <div class="row border-bottom white-bg">
-        <nav class="navbar navbar-static-top" role="navigation">
-            <div class="navbar-header">
-                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                    <i class="fa fa-reorder"></i>
-                </button>
-                <a href="#" class="navbar-brand">Garuda Indonesia</a>
+                    </li>
+                    
+                </ul>
+
             </div>
-          <div class="row border-bottom">
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
           <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
           <div class="navbar-header">
               <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -53,8 +86,9 @@ include('connection/conn.php');
               </ul>
           </nav>
         </div>
-        </nav>
-        </div>
+
+
+
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="container " style="color:black">
           <div class="row">
@@ -275,6 +309,8 @@ include('connection/conn.php');
         </div>
         </div>
         </div>
+
+
         <div class="footer">
             <div class="pull-right">
               
@@ -284,8 +320,12 @@ include('connection/conn.php');
             </div>
         </div>
 
+
+        
         </div>
         </div>
+
+  
 
     <!-- Mainly scripts -->
     <script src="<?php echo base_url();?>js/jquery-2.1.1.js"></script>
@@ -339,5 +379,10 @@ include('connection/conn.php');
     });
   });
   </script>
+
+
+
+
 </body>
 </html>
+    
