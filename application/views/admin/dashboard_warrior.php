@@ -41,7 +41,7 @@ include('connection/conn.php');
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $this->session->userdata('username')?></strong>
                              </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="<?php echo base_url()?>admin/logout">Logout</a></li>
+                                <li><a href="<?php echo base_url()?>admin/logout">Go To User</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -105,7 +105,7 @@ include('connection/conn.php');
                   </li>
                   <li>
                       <a href="<?php echo base_url()?>admin/logout">
-                          <i class="fa fa-sign-out"></i> Log out
+                          <i class="fa fa-sign-out"></i> Go To User
                       </a>
                   </li>
               </ul>

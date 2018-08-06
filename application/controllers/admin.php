@@ -548,10 +548,10 @@ class admin extends CI_Controller {
 	{
 		//$this->session->sess_destroy();
 		$newdata = array(
-			    'username'  => 'BIK',
+			    'username'  => 'JKTCC',
 			    'role'  	=> '1',
-			    'unit'		=> 'BIAK',
-			    'direktorat'=> 'UPGAM'
+			    'unit'		=> 'JKTDC',
+			    'direktorat'=> 'HO'
 			);
 			$this->session->set_userdata($newdata);
 			redirect('user');

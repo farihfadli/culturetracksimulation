@@ -105,7 +105,7 @@
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
             
-            <li><a href="<?php echo base_url()?>/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+            <li><a href="<?php echo base_url()?>/logout.php"><i class="fa fa-sign-out pull-right"></i> Go To User</a></li>
           </ul>
         </li>
 

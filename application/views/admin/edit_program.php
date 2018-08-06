@@ -74,7 +74,7 @@
                   </li>
                   <li>
                       <a href="<?php echo base_url()?>admin/logout">
-                          <i class="fa fa-sign-out"></i> Log out
+                          <i class="fa fa-sign-out"></i> Go To User
                       </a>
                   </li>
               </ul>

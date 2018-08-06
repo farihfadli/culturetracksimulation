@@ -43,7 +43,7 @@ $user=$unit;
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>user/logout" style="color:black">
-                            <i class="fa fa-sign-out"></i> Log out
+                            <i class="fa fa-sign-out"></i> Go To User
                         </a>
                     </li>
                 </ul>
