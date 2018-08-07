@@ -59,10 +59,13 @@ include('connection/conn.php');
                         </div>
                     </li>
                     <li class="active">
-                        <a href="<?php echo base_url()?>admin/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Progress</span></a>
+                        <a href="<?php echo base_url()?>user/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Progress</span></a>
 
                     </li>
-                    
+                    <li>
+                        <a href="<?php echo base_url()?>user/warrior"><i class="fa fa-th-large"></i><span class="nav-label">Data Warrior</span>
+                        </a>
+                    </li>
                 </ul>
 
             </div>
