@@ -144,58 +144,12 @@ include('connection/conn.php');
 
               <div class="col-md-4 col-sm-4    col-xs-12">
 
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian</h2>
-                <h2 style='font-weight: bold'>Head Office</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_gauge2" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-              
-              </div>
-              <div class="col-md-4 col-sm-4    col-xs-12">
-
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian</h2>
-                <h2 style='font-weight: bold'>Branch Office</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_gauge3" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-
               </div>
 
             </div>
 
 
-                  <div class="col-md-2 col-sm-2    col-xs-12">
-                  <div class="widget red-bg p-lg text-center">
-                  <?php
-                  $cc=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
-                  $count=mysqli_num_rows($cc);
                   
-                  ?>
-                   <?php
-                  $cc2=mysqli_query($con, "SELECT * FROM cc_program where status IN ('Default', 'Active')");
-                  $count2=mysqli_num_rows($cc2);
-                  ?>
-                            <div class="m-b-md">
-                                <i class="fa fa-bell fa-4x"></i>
-                                <h1 class="m-xs"><?php echo $count?></h1>
-                                <h3 class="font-bold no-margins">
-                                    Culture Program Aktif
-                                </h3>
-                            </div>
-                        </div>  
-                </div>
 
 
                 <div class="col-md-5 col-sm-5    col-xs-12">
@@ -253,6 +207,56 @@ include('connection/conn.php');
                               <?php echo $leaderhead[2]->Total; ?>  
                               </td>
                             </tr>
+
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[3]->kode_unit; ?>
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[3]->Total; ?>  
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[4]->kode_unit; ?>
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[4]->Total; ?>  
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[5]->kode_unit; ?>
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[5]->Total; ?>  
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[6]->kode_unit; ?>
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[6]->Total; ?>  
+                              </td>
+                            </tr>
+
+                          
 
                       </tbody>
                     </table>
@@ -326,136 +330,7 @@ include('connection/conn.php');
 
 
 
-              <div class="col-md-5 col-sm-5    col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2 style='font-weight: bold'>Top 3 Branch Office</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:20%; text-align:center">Rank</th>
-                          <th style="text-align:center">Unit Name</th>
-                          <th style="text-align:center">Score</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>       
-                           
-
-                              <tr>
-                              <td style="text-align:center" >
-                                1
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[0]->kode_unit; ?>
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[0]->Total; ?>  
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                2
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[1]->kode_unit; ?>  
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[1]->Total; ?>  
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                3
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[2]->kode_unit; ?>  
-                              </td>
-                              <td style="text-align:center" >
-                              <?php echo $leaderbranch[2]->Total; ?>  
-                              </td>
-                            </tr>
-
-                      </tbody>
-                    </table>
-
-
-                    <button type="button" 
-                            class="btn btn-block btn-outline btn-primary" 
-                            data-toggle="modal" 
-                            data-target="#myModal1">
-                    See All...
-                    </button>
-
-                    <div class="modal inmodal" id="myModal1" 
-                                             tabindex="-1" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content animated bounceInRight">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">
-                                                            <span aria-hidden="true">&times;</span>
-                                                            <span class="sr-only">Close</span>
-                                                        </button>
-                                                        
-                                                        <i class="fa fa-laptop modal-icon"></i>
-                                                        <h4 class="modal-title">Branch Office Leaderboard</h4>
-                                                        <small class="font-bold">urutan skor dari masing-masing unit yang masuk dalam kategori branch office.</small>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <form action="<?php echo base_url(). 'admin/tambah_label'?>" method="post">
-                                                            <table class="table table-hover table-bordered" style="font-size:14px">
-                                                        <thead>
-                                                          <tr>
-                                                            <th style="width:20%; text-align:center">Rank</th>
-                                                            <th style="text-align:center">Unit Name</th>
-                                                            <th style="text-align:center">Score</th>
-                                                            
-                                                          </tr>
-                                                        </thead>
-                                                        <tbody>                                                                 
-
-                                                                
-                                                                 
-                                                                 
-                                                                <?php for ($i=0; $i < count($leaderbranch) ; $i++) {  ?>
-                                                                  
-                                                                <tr>
-                                                                <td style="text-align:center" >
-                                                                <?php echo $i+1; ?>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo $leaderbranch[$i]->kode_unit; ?>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo $leaderbranch[$i]->Total; ?> 
-                                                                </td>
-                                                              </tr>
-
-                                                                <?php } ?>
-                                                              
-
-                                                        </tbody>
-                                                      </table>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                  </div>
-                </div>
+              
               </div>
     
 
@@ -510,7 +385,7 @@ include('connection/conn.php');
 
                         <?php 
                         $n=1;
-                        $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='1')a JOIN unit b on a.unit_name=b.kode_unit");
+                        $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='1')a JOIN unit b on a.unit_name=b.kode_unit" );
                         while ($row=mysqli_fetch_array($queries)) {
 
                           ?>                    
@@ -545,332 +420,7 @@ include('connection/conn.php');
               </div>
 
 
-            <div class="col-md-6 col-sm-6    col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Jakarta Raya and <br>International Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                      <th style="text-align:center">Progres</th>
-
-                    </tr>
-                  </thead>
-                  <tbody>
-
-
-                    <?php foreach ($programjkt as $key)  { ?>
-                                                              
-                                                                <tr>
-                                                                <td style="text-align:left" >
-                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
-                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <i class="fa fa-check-circle" style="color:green"></i>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo ceil($key->persen_realisasi); ?>%
-                                                                </td>
-                                                              </tr>
-
-                                                                
-                                                                <?php } ?>
-
-
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='5')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                          <td style="text-align:center">
-                            0%  
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6    col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Kalimantan, Sulawesi, & <br>Papua Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                      <th style="text-align:center">Progres</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    <?php foreach ($programkal as $key)  { ?>
-                                                              
-                                                                <tr>
-                                                                <td style="text-align:left" >
-                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
-                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <i class="fa fa-check-circle" style="color:green"></i>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo ceil($key->persen_realisasi); ?>%
-                                                                </td>
-                                                              </tr>
-
-                                                                
-                                                                <?php } ?>
-
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='4')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                          <td style="text-align:center">
-                            0%  
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          </div>
-
-
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Sumatera Region</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      </li>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:80%">Unit</th>
-                          <th style="text-align:center">Status</th>
-                          <th style="text-align:center">Progres</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        <?php foreach ($programsum as $key)  { ?>
-                                                              
-                                                                <tr>
-                                                                <td style="text-align:left" >
-                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
-                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <i class="fa fa-check-circle" style="color:green"></i>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo ceil($key->persen_realisasi); ?>%
-                                                                </td>
-                                                              </tr>
-
-                                                                
-                                                                <?php } ?>
-
-                        <?php 
-                        $n=1;
-                        $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='2')a JOIN unit b on a.unit_name=b.kode_unit");
-                        while ($row=mysqli_fetch_array($queries)) {
-
-                          ?>
-                          <?php 
-                          if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                            ?>
-                            <tr style=" background:#f7f7f7">
-                              <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-circle" style="color:red"></i>
-                              </td>
-                              <td style="text-align:center">
-                              0%
-                              </td>
-                            </tr>
-                            <?php                        
-                          } else {
-                            ?>
-                            
-                            <?php 
-
-                          }
-                          ?>
-                          <?php 
-                        }
-
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Jawa, Bali,<br>Nusa Tenggara Region </h2>
-                    
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:80%">Unit</th>
-                          <th style="text-align:center">Status</th>
-                          <th style="text-align:center">Progres</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        <?php foreach ($programsum as $key)  { ?>
-                                                              
-                                                                <tr>
-                                                                <td style="text-align:left" >
-                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
-                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <i class="fa fa-check-circle" style="color:green"></i>
-                                                                </td>
-                                                                <td style="text-align:center" >
-                                                                <?php echo ceil($key->persen_realisasi); ?>%
-                                                                </td>
-                                                              </tr>
-
-                                                                
-                                                                <?php } ?>
-
-                        <?php 
-                        $n=1;
-                        $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='3')a JOIN unit b on a.unit_name=b.kode_unit");
-                        while ($row=mysqli_fetch_array($queries)) {
-
-                          ?>
-
-
-                          <?php 
-                          if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                            ?>
-                            <tr style=" background:#f7f7f7">
-                              <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-circle" style="color:red"></i>
-                              </td>
-                              <td style="text-align:center">
-                              0%
-                              </td>
-                            </tr>
-                            <?php                        
-                          } else {
-                            ?>
-                            
-                            <?php 
-
-                          }
-                          ?>
-
-
-                          <?php 
-                        }
-
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-              </div>
-
-
-
-
-
+            
             </div>
                 <div class="row">
                 <!-- KNOB CHART _-->
